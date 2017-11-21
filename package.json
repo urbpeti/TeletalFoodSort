@@ -1,0 +1,22 @@
+{
+  "name": "teletalfoodsorter",
+  "version": "1.0.0",
+  "description": "Sort telatal.com foods by custom parameters.",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/urbpeti/TeletalFoodSort.git"
+  },
+  "author": "Urbanovics Peter",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/urbpeti/TeletalFoodSort/issues"
+  },
+  "homepage": "https://github.com/urbpeti/TeletalFoodSort#readme",
+  "dependencies": {
+    "axios": "^0.17.1"
+  }
+}
