@@ -18,8 +18,9 @@ const csvWriter = createCsvWriter({
 axios.get('https://www.teletal.hu/etlap').then((response)=> {
 	const dom = cheerio.load(response.data);
 	const infos = dom(".ar  .info");
-	let eredmenyek = [];
+	console.log(response.data);
 	infos.each((i, elem)=>{
+	let eredmenyek = [];
 		const kodDatum = dom(elem);
 		let info = dom(elem).parent().parent();
 		const ev = kodDatum.attr("ev");
@@ -28,10 +29,10 @@ axios.get('https://www.teletal.hu/etlap').then((response)=> {
 		const kod = kodDatum.attr("kod");
 		const ft = +info.text().match("(\\d+) *Ft")[1];
 		
-		console.log('https://www.teletal.hu/info?ev='+ ev +'&het='+het+'&nap='+nap+'&kod='+kod);
+		console.log('https://www.teletal.hu/info?ev='+ ev +'&het='+ (+het +1) +'&nap='+nap+'&kod='+kod + "  "+ft+" FT");
 		//https://www.teletal.hu/info?ev=2017&het=47&nap=5&kod=TV4
 		promises.push(
-			axios.get('https://www.teletal.hu/info?ev='+ ev +'&het='+het+'&nap='+nap+'&kod='+kod)
+			axios.get('https://www.teletal.hu/info?ev='+ ev +'&het='+ (+het +1) +'&nap='+nap+'&kod='+kod)
 				.then((resp)=>{
 					const d = cheerio.load(resp.data);
 					const tapertek = d(".tapanyag");
